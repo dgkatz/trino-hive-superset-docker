@@ -1,0 +1,95 @@
+version: "3.9"
+services:
+  hive:
+    build: ./hive
+    entrypoint: /init-hive.sh
+    ports:
+      - "9083:9083"
+      - "10000:10000"
+      - "10002:10002"
+    depends_on:
+      - postgres
+      - minio
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 1G
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=hive
+      - POSTGRES_PASSWORD=hive
+      - POSTGRES_DB=metastore
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 1G
+  minio:
+    image: minio/minio:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio-data:/data
+    environment:
+      MINIO_ACCESS_KEY: minio_access_key
+      MINIO_SECRET_KEY: minio_secret_key
+    command: server /data --console-address ":9001"
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 1G
+
+  trino-coordinator:
+    image: "trinodb/trino:latest"
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./trino/coordinator/etc:/etc/trino:ro
+    depends_on:
+      - hive
+      - trino-worker
+    deploy:
+      resources:
+        limits:
+          cpus: 2
+          memory: 4G
+
+  trino-worker:
+    image: "trinodb/trino:latest"
+    volumes:
+      - ./trino/worker/etc:/etc/trino:ro
+    depends_on:
+      - hive
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          cpus: 2
+          memory: 4G
+
+  superset:
+    build: ./superset
+    ports:
+      - "8088:8088"
+    volumes:
+      - superset-data:/app/superset_home
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 1G
+
+volumes:
+  minio-data:
+    driver: local
+  postgres-data:
+    driver: local
+  superset-data:
+    driver: local
