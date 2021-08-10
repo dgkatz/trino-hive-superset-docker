@@ -2,7 +2,7 @@
 ## Technologies:
 ### Query Engine is `Trino (PrestoSQL)`
 ### Metadata Store is `Apache Hive`
-### Storage is `Minio (S3 compatable)`
+### Object Storage is `Minio (S3 compatable)`
 ### Data Viz is `Apache Superset`
 
 ## Get things running
