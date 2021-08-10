@@ -13,8 +13,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 1
-          memory: 1G
+          cpus: 0.5
+          memory: 500M
   postgres:
     image: postgres:latest
     environment:
@@ -26,8 +26,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 1
-          memory: 1G
+          cpus: 0.5
+          memory: 500M
   minio:
     image: minio/minio:latest
     ports:
@@ -58,7 +58,7 @@ services:
       resources:
         limits:
           cpus: 2
-          memory: 4G
+          memory: 3G
 
   trino-worker:
     image: "trinodb/trino:latest"
@@ -72,7 +72,7 @@ services:
       resources:
         limits:
           cpus: 2
-          memory: 4G
+          memory: 6G
 
   superset:
     build: ./superset
@@ -85,7 +85,6 @@ services:
         limits:
           cpus: 1
           memory: 1G
-
 volumes:
   minio-data:
     driver: local
