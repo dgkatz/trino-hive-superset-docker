@@ -1,4 +1,4 @@
-# Hive based data lake on Minio storage
+# Cloud-native Trino (prestosql) + Hive + Minio + Superset
 ## Technologies:
 ### Query Engine is `Trino (PrestoSQL)`
 ### Metadata Store is `Apache Hive`
