@@ -1,0 +1,2 @@
+CREATE EXTERNAL TABLE amithive.orders_delta(
+order_number BIGINT,  order_date BIGINT,  purchaser BIGINT,  quantity BIGINT, product_id BIGINT) ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat' OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat' LOCATION 's3a://minio-sink-bucket/silver/data/orders/_symlink_format_manifest';
