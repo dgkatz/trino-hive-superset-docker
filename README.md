@@ -1,12 +1,12 @@
 # Cloud-native Lakehouse    kafka + spark + Deltalake + Trino (prestosql) + Hive + Minio + Superset
-## Technologies:
-# apache kafka
-# apache spark
-# apache deltalake
-# Query Engine is `Trino (PrestoSQL)`
-# Metadata Store is `Apache Hive`
-# Object Storage is `Minio (S3 compatable)`
-# Data Viz is `Apache Superset`
+### Technologies:
+#### apache kafka
+#### apache spark
+#### apache deltalake
+#### Query Engine is `Trino (PrestoSQL)`
+#### Metadata Store is `Apache Hive`
+#### Object Storage is `Minio (S3 compatable)`
+#### Data Viz is `Apache Superset`
 
 ![image](https://user-images.githubusercontent.com/5821916/143058563-97afbd4f-651d-4290-b2e2-ed3dfb38d4ae.png)
 
