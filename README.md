@@ -21,8 +21,8 @@
 Trino: `http://localhost:8080/ui/` (username can be anything) <br>
 Minio: `http://localhost:9001/` (username: `minio_access_key`, password: `minio_secret_key`)<br>
 Superset: `http://localhost:8088/` (username: `admin`, password: `admin`)<br>
-kafka: `http://localhost:9021/ `
-spark: `http://localhost:9999 `
+kafka: `http://localhost:9021/ ` <br>
+spark: `http://localhost:9999 ` (get key: docker-compose exec pyspark bash -c "jupyter server list")
 ## Kafka connect - stream data from mysql to minio:
 1. create S3 bucket: minio-sink-bucket (minio) 
 2. create kafka connectors:
