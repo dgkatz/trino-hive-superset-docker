@@ -30,7 +30,13 @@ spark: `http://localhost:9999 ` (get key: docker-compose exec pyspark bash -c "j
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @s3-minio-sink.json
 ##### Start MySQL connector
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @source.json
-
+## Spark - transform data to deltalake format:
+1. log into spark 
+2. execute notebook
+## Hive - create delta hive tables:
+1. docker-compose exec hive hive
+2. docker-compose exec hive hive -e 'create database amithive;'
+3. TBD
 ## Connect to Trino in Superset:
 1. Go to `data` dropdown and click `databases`
 2. Click the `+ database` button
