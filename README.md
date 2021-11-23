@@ -36,7 +36,7 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 ## Hive - create delta hive tables:
 1. docker-compose exec hive hive
 2. docker-compose exec hive hive -e 'create database amithive;'
-3. TBD
+3. docker-compose exec hive hive -e "$(cat hive_command.hql)"
 ## Connect to Trino in Superset:
 1. Go to `data` dropdown and click `databases`
 2. Click the `+ database` button
