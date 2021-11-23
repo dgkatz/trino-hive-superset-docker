@@ -41,7 +41,7 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 1. Go to `data` dropdown and click `databases`
 2. Click the `+ database` button
 3. For `Select a database to connect` choose `presto`
-4. In `SQLALCHEMY URI` put `trino://hive@trino-coordinator:8080/hive`
+4. In `SQLALCHEMY URI` put `trino://hive@trino-coordinator:8080/hive` 
 5. Switch over to `Advanced` tab
 5. In `SQL Lab` select all options
 5. In `Security` select `Allow data upload`
