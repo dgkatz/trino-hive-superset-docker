@@ -26,3 +26,4 @@ Superset: `http://localhost:8088/` (username: `admin`, password: `admin`)<br>
 5. In `Security` select `Allow data upload`
 
  
+# kafka-deltalake-trino-superset

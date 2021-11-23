@@ -50,9 +50,10 @@ RUN curl -L \
         --output $HIVE_HOME/lib/hadoop-aws-$HADOOP_VERSION.jar
 
 # Configure
-ADD files/hive-site.xml $HIVE_CONF_DIR/
 
-ADD files/init-hive.sh /
+COPY files/hive-site.xml $HIVE_CONF_DIR/
+
+COPY files/init-hive.sh /
 RUN chmod +x /init-hive.sh
 
 EXPOSE 9083
