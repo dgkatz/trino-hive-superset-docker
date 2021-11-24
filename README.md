@@ -1,4 +1,4 @@
-# Cloud-native Lakehouse    kafka + spark + Deltalake + Trino (prestosql) + Hive + Minio + Superset
+# Cloud-native Lakehouse:     kafka + spark + Deltalake + Trino (prestosql) + Hive + Minio + Superset <br>
 ### Technologies:
 #### apache kafka
 #### apache spark
